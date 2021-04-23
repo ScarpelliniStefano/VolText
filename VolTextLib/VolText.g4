@@ -1,5 +1,5 @@
 /**
- * Define a grammar called Hello
+ * Define a grammar called VolText
  */
 grammar VolText;
 
@@ -7,7 +7,7 @@ grammar VolText;
     package antlr;
 }
 
-// match keyword hello followed by an identifier
+
 pdf : 		A pdfattr* (stylesheet)? (page)+ C;
 
 pdfattr: 	'title:' STRING ENDNLINE
@@ -65,9 +65,7 @@ imganumber: ('pos-x'
 		|	('height'
 		|	'width') ':' NVAL (UNIT)? ENDNLINE;
 		
-NOTVAL:		'-';
-		
-UNIT:		'mm' | '%' | 'pt';
+
 		 
 idval:		'id:' STRING ENDNLINE;
 
@@ -103,6 +101,15 @@ pageattr:	'orientation:' ORIENTATION ENDNLINE
 	|		'height' ':' NVAL ENDNLINE
 	|		'format:' FORMATVAL ENDNLINE;
 	
+
+	
+
+
+//TERMINALI
+NOTVAL:		'-';
+		
+UNIT:		'mm' | '%' | 'pt';
+
 FORMATVAL:	'A0'
 	|		'A1' 
 	|		'A2'
@@ -111,11 +118,8 @@ FORMATVAL:	'A0'
 	|		'A5'
 	|		'A6';
 
-ORIENTATION:('hor' | 'ver');
-	
-
-
-//TERMINALI
+ORIENTATION:'hor' 
+	| 		'ver';
 
 TXTATF: 	'bold'
 	| 		'italics'

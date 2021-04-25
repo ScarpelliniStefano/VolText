@@ -60,8 +60,8 @@ fitAttr:	('fit-x'
 		|	 'fit-y') ':' TFVAL ENDNLINE;
 
 imganumber: ('pos-x'
-		|	'pos-y' 
-		|	'angle-rotation') ':' NOTVAL? NVAL (UNIT)? ENDNLINE
+		|	'pos-y' ) ':' NOTVAL? NVAL (UNIT)? ENDNLINE
+		|	'angle-rotation' ':' NOTVAL? NVAL ENDNLINE
 		|	('height'
 		|	'width') ':' NVAL (UNIT)? ENDNLINE;
 		
@@ -83,7 +83,9 @@ txtval:		('font-family:'
 	|		 'font-family-ttf:'
 	|		 'font-family-otf:') STRING ENDNLINE
 	| 		'font-size:' NVAL ENDNLINE 
-	| 		TXTATF ':' TFVAL ENDNLINE;
+	| 		('bold:'
+	|		'italics:'
+	|		'underline:') TFVAL ENDNLINE;
 	
 colorBullet:'colorT-bullet:' STRING ENDNLINE
 	|		'color-bullet:' COLORVAL ENDNLINE;
@@ -120,10 +122,6 @@ FORMATVAL:	'A0'
 
 ORIENTATION:'hor' 
 	| 		'ver';
-
-TXTATF: 	'bold'
-	| 		'italics'
-	|		'underline';
 
 COLORVAL: 	'#' ([0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F]);
 

@@ -1,46 +1,19 @@
 package classes;
 
 import java.awt.Color;
-import java.util.ArrayList;
 
-public class TXT_Item extends Item {
-	/**
-	 * 
-	 */
-	public TXT_Item() {
-		super();
-		Text=new ArrayList<String>();
-		setAngle_Rotation(0f);
-		setID("");
-		setFontFamily("");
-		setFontFamilyTTF(null);
-		setFontFamilyOTF(null);
-		setFontSize(12);
-		setRGBAcolor(new Color(0, 0, 0, 0));
-		setBold(false);
-		setItalics(false);
-		setUnderline(false);
-		setPosition("");
-		setPosX(0f);
-		setPosY(0f);
-		setWidth(null);
-		setHeight(null);
-		setFitX(false);
-		setFitY(false);
-		setAlignment(null);
-		setLayer(0);
-		setUnitX("mm");
-		setUnitY("mm");
-		setUnitWidth("mm");
-		setUnitHeight("mm");
-	}
-	private ArrayList<String> Text;
+import enums.Figure;
+
+public class Item_Stylesheet {
+
+	private String type;
+	private boolean ordered;
+	private String bullet;
 	private String ID;
 	private String FontFamily;
-	private String FontFamilyTTF;
-	private String FontFamilyOTF;
 	private Integer FontSize;
 	private Color rGBAcolor;
+	private Color RGBBulletColor;
 	private boolean Bold;
 	private boolean Italics;
 	private boolean Underline;
@@ -53,24 +26,87 @@ public class TXT_Item extends Item {
 	private boolean FitX;
 	private boolean FitY;
 	private String Alignment;
-	private Integer Layer;
+	private String FontFamilyTTF;
+	private String FontFamilyOTF;
+	private String URL;
 	private String UnitX;
 	private String UnitY;
 	private String UnitWidth;
 	private String UnitHeight;
-	/**
-	 * @return the text
-	 */
-	public ArrayList<String> getText() {
-		return Text;
-	}
-	/**
-	 * @param text the text to set
-	 */
-	public void addText(String text) {
-		Text.add(text);
-	}
+	private boolean oob;
+	private String format;
+	private Figure Figura;
+	private Float Cross_Percentage;
 	
+	public Item_Stylesheet(String id)
+	{
+		type = "";
+		ordered = false;
+		bullet = "odd";
+		ID = id;
+		FontFamily = "";
+		FontSize = 12;
+		rGBAcolor = new Color(0, 0, 0, 0);
+		RGBBulletColor = null;
+		Bold = false;
+		Italics = false;
+		Underline = false;
+		Position = "";
+		PosX = 0f;
+		PosY = 0f;
+		Angle_Rotation = 0f;
+		Width = 0f;
+		Height = 0f;
+		FitX = false;
+		FitY = false;
+		Alignment = null;
+		FontFamilyTTF = null;
+		FontFamilyOTF = null;
+		UnitX = "mm";
+		UnitY = "mm";
+		UnitHeight = "mm";
+		UnitWidth = "mm";
+		oob = false;
+		format = "";
+		Figura = Figure.RETTANGOLO;
+		Cross_Percentage = 0f;
+	}
+	/**
+	 * @return the type
+	 */
+	public String getType() {
+		return type;
+	}
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(String type) {
+		this.type = type;
+	}
+	/**
+	 * @return the ordered
+	 */
+	public boolean isOrdered() {
+		return ordered;
+	}
+	/**
+	 * @param ordered the ordered to set
+	 */
+	public void setOrdered(boolean ordered) {
+		this.ordered = ordered;
+	}
+	/**
+	 * @return the bullet
+	 */
+	public String getBullet() {
+		return bullet;
+	}
+	/**
+	 * @param bullet the bullet to set
+	 */
+	public void setBullet(String bullet) {
+		this.bullet = bullet;
+	}
 	/**
 	 * @return the iD
 	 */
@@ -96,31 +132,6 @@ public class TXT_Item extends Item {
 		FontFamily = fontFamily;
 	}
 	/**
-	 * @return the fontFamilyTTF
-	 */
-	public String getFontFamilyTTF() {
-		return FontFamilyTTF;
-	}
-	/**
-	 * @param fontFamilyTTF the fontFamilyTTF to set
-	 */
-	public void setFontFamilyTTF(String fontFamilyTTF) {
-		FontFamilyTTF = fontFamilyTTF;
-	}
-	/**
-	 * @return the fontFamilyOTF
-	 */
-	public String getFontFamilyOTF() {
-		return FontFamilyOTF;
-	}
-	/**
-	 * @param fontFamilyOTF the fontFamilyOTF to set
-	 */
-	public void setFontFamilyOTF(String fontFamilyOTF) {
-		FontFamilyOTF = fontFamilyOTF;
-	}
-	
-	/**
 	 * @return the fontSize
 	 */
 	public Integer getFontSize() {
@@ -131,6 +142,30 @@ public class TXT_Item extends Item {
 	 */
 	public void setFontSize(Integer fontSize) {
 		FontSize = fontSize;
+	}
+	/**
+	 * @return the rGBAcolor
+	 */
+	public Color getrGBAcolor() {
+		return rGBAcolor;
+	}
+	/**
+	 * @param rGBAcolor the rGBAcolor to set
+	 */
+	public void setrGBAcolor(Color rGBAcolor) {
+		this.rGBAcolor = rGBAcolor;
+	}
+	/**
+	 * @return the rGBBulletColor
+	 */
+	public Color getRGBBulletColor() {
+		return RGBBulletColor;
+	}
+	/**
+	 * @param rGBBulletColor the rGBBulletColor to set
+	 */
+	public void setRGBBulletColor(Color rGBBulletColor) {
+		RGBBulletColor = rGBBulletColor;
 	}
 	/**
 	 * @return the bold
@@ -155,6 +190,18 @@ public class TXT_Item extends Item {
 	 */
 	public void setItalics(boolean italics) {
 		Italics = italics;
+	}
+	/**
+	 * @return the underline
+	 */
+	public boolean isUnderline() {
+		return Underline;
+	}
+	/**
+	 * @param underline the underline to set
+	 */
+	public void setUnderline(boolean underline) {
+		Underline = underline;
 	}
 	/**
 	 * @return the position
@@ -229,42 +276,6 @@ public class TXT_Item extends Item {
 		Height = height;
 	}
 	/**
-	 * @return the layer
-	 */
-	public Integer getLayer() {
-		return Layer;
-	}
-	/**
-	 * @param layer the layer to set
-	 */
-	public void setLayer(Integer layer) {
-		Layer = layer;
-	}
-	/**
-	 * @return the underline
-	 */
-	public boolean isUnderline() {
-		return Underline;
-	}
-	/**
-	 * @param underline the underline to set
-	 */
-	public void setUnderline(boolean underline) {
-		Underline = underline;
-	}
-	/**
-	 * @return the rGBAcolor
-	 */
-	public Color getRGBAcolor() {
-		return rGBAcolor;
-	}
-	/**
-	 * @param rGBAcolor the rGBAcolor to set
-	 */
-	public void setRGBAcolor(Color rGBAcolor) {
-		this.rGBAcolor = rGBAcolor;
-	}
-	/**
 	 * @return the fitX
 	 */
 	public boolean isFitX() {
@@ -299,6 +310,42 @@ public class TXT_Item extends Item {
 	 */
 	public void setAlignment(String alignment) {
 		Alignment = alignment;
+	}
+	/**
+	 * @return the fontFamilyTTF
+	 */
+	public String getFontFamilyTTF() {
+		return FontFamilyTTF;
+	}
+	/**
+	 * @param fontFamilyTTF the fontFamilyTTF to set
+	 */
+	public void setFontFamilyTTF(String fontFamilyTTF) {
+		FontFamilyTTF = fontFamilyTTF;
+	}
+	/**
+	 * @return the fontFamilyOTF
+	 */
+	public String getFontFamilyOTF() {
+		return FontFamilyOTF;
+	}
+	/**
+	 * @param fontFamilyOTF the fontFamilyOTF to set
+	 */
+	public void setFontFamilyOTF(String fontFamilyOTF) {
+		FontFamilyOTF = fontFamilyOTF;
+	}
+	/**
+	 * @return the uRL
+	 */
+	public String getURL() {
+		return URL;
+	}
+	/**
+	 * @param uRL the uRL to set
+	 */
+	public void setURL(String uRL) {
+		URL = uRL;
 	}
 	/**
 	 * @return the unitX
@@ -348,6 +395,52 @@ public class TXT_Item extends Item {
 	public void setUnitHeight(String unitHeight) {
 		UnitHeight = unitHeight;
 	}
-
-
+	/**
+	 * @return the oob
+	 */
+	public boolean isOob() {
+		return oob;
+	}
+	/**
+	 * @param oob the oob to set
+	 */
+	public void setOob(boolean oob) {
+		this.oob = oob;
+	}
+	/**
+	 * @return the format
+	 */
+	public String getFormat() {
+		return format;
+	}
+	/**
+	 * @param format the format to set
+	 */
+	public void setFormat(String format) {
+		this.format = format;
+	}
+	/**
+	 * @return the figura
+	 */
+	public Figure getFigura() {
+		return Figura;
+	}
+	/**
+	 * @param figura the figura to set
+	 */
+	public void setFigura(Figure figura) {
+		Figura = figura;
+	}
+	/**
+	 * @return the cross_Percentage
+	 */
+	public Float getCross_Percentage() {
+		return Cross_Percentage;
+	}
+	/**
+	 * @param cross_Percentage the cross_Percentage to set
+	 */
+	public void setCross_Percentage(Float cross_Percentage) {
+		Cross_Percentage = cross_Percentage;
+	}
 }

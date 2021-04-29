@@ -11,17 +11,23 @@ import javax.swing.JFileChooser;
 
 import antlr.user_gui;
 import javafx.application.Application;
+import javafx.beans.InvalidationListener;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollBar;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -30,9 +36,10 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
 String currdir="";
-
+Integer rowNumber=0;
 	@Override
     public void start(Stage primaryStage) {
+		
         primaryStage.setTitle("VolTex");
         primaryStage.setMinWidth(500);
         primaryStage.setMinHeight(400);
@@ -49,8 +56,17 @@ String currdir="";
 
         Text scenetitle = new Text("VolText");
         scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-        grid.add(scenetitle, 0, 0, 2, 1);
-
+        grid.add(scenetitle, 1, 0, 1, 1);
+        
+        GridPane gridInterna=new GridPane();
+        
+        TextArea rowTextArea = new TextArea();
+        double rWidth = 20;
+        double rHeight = 600;
+        rowTextArea.setPrefSize(rWidth, rHeight);
+        rowTextArea.setDisable(true);
+        gridInterna.add(rowTextArea, 0, 1);
+        rowTextArea.setText("");
         TextArea userTextArea = new TextArea();
 
         double prefWidth = 1000;
@@ -58,10 +74,15 @@ String currdir="";
         userTextArea.setPrefSize(prefWidth, prefHeight);
         //userTextArea.setStyle(" -fx-highlight-fill: lightgrey; -fx-highlight-text-fill: black; -fx-text-fill: wheat; ");
         //userTextArea.setMaxSize(3*prefWidth, 3*prefHeight);
+        ScrollPane panelSUser=new ScrollPane();
+        
 
-
-        grid.add(userTextArea, 1, 1);
-
+        gridInterna.add(userTextArea, 1, 1);
+        panelSUser.setContent(gridInterna);
+        panelSUser.setFitToWidth(true);
+        
+        grid.add(panelSUser, 1, 1);
+        
         Button btnApri = new Button("Apri grammatica");
         btnApri.setPrefSize(140,50);
         HBox hbBtn = new HBox(10);
@@ -91,6 +112,40 @@ String currdir="";
         consoleTextArea.setText("");
         grid.add(consoleTextArea, 1, 7);
 
+        System.out.println(userTextArea.getScrollTop());
+        //Double spUser=((ScrollPane) userTextArea.getChildrenUnmodifiable().get(0)).getVvalue();
+        //ScrollPane spRow=(ScrollPane) rowTextArea.getChildrenUnmodifiable().get(0);
+       /* spUser.vvalueProperty().addListener(new ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number> arg0, Number newV, Number oldV) {
+				spRow.setVvalue(newV.doubleValue());
+			}
+        });*/
+       
+        
+        userTextArea.textProperty().addListener(new ChangeListener<String>() {           
+
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				int numL=(int) newValue.lines().count();
+				if(rowNumber<numL) {
+					rowNumber=numL;
+					rowTextArea.appendText(rowNumber.toString()+System.lineSeparator());
+					
+				}else if(rowNumber>numL) {
+					rowNumber=numL;
+					rowTextArea.setText("");
+					for(int i=1;i<=rowNumber;i++) {
+						rowTextArea.appendText(i+System.lineSeparator());
+					}
+					
+					
+				}
+					
+			}
+        });
+        
+        
         btnApri.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
@@ -118,12 +173,15 @@ String currdir="";
                     try {
 
                         Scanner myReader = new Scanner(selectedFile);
+                        rowNumber=0;
                         userTextArea.setText("");
+                        
+                        rowTextArea.setText("");
                         while (myReader.hasNextLine()) {
-
                             userTextArea.appendText(myReader.nextLine() + System.lineSeparator());
                         }
                         myReader.close();
+                        
 
                         msg("File aperto", consoleTextArea, false);
 

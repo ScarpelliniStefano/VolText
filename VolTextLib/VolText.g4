@@ -1,5 +1,5 @@
 /**
- * Define a grammar called VolText
+ * Define a grammar called Hello
  */
 grammar VolText;
 
@@ -7,7 +7,7 @@ grammar VolText;
     package antlr;
 }
 
-
+// match keyword hello followed by an identifier
 pdf : 		A pdfattr* (stylesheet)? (page)+ C;
 
 pdfattr: 	'title:' STRING ENDNLINE
@@ -18,9 +18,27 @@ stylesheet: 'stylesheet' O element* C;
 		
 element: 	'@' STRING O attrStyle* C;
 	
-attrStyle: 	imganumber
-	|		positionv
-	|		txtval;
+attrStyle: 	'cross-point:' NVAL ENDNLINE
+	|		'shape:"' ('RECTANGLE' | 'CIRCLE' | 'TRIANGLE') ENDLINE
+	|		('fit-x' | 'fit-y') ':' TFVAL ENDNLINE
+	|		('pos-x' | 'pos-y') ':' NOTVAL? NVAL (UNIT)? ENDNLINE
+	|		'angle-rotation' ':' NOTVAL? NVAL ENDNLINE
+	|		('height' | 'width') ':' NVAL (UNIT)? ENDNLINE
+	|		('p_height' | 'p_width') ':' NVAL ENDNLINE
+	|		'ordered:' TFVAL ENDNLINE
+	|		'bullet:' STRING ENDNLINE
+	|		('font-family:' | 'font-family-ttf:' | 'font-family-otf:') STRING ENDNLINE
+	| 		'font-size:' NVAL ENDNLINE 
+	| 		('bold:' |	'italics:' |'underline:') TFVAL ENDNLINE
+	|		'colorT-bullet:' STRING ENDNLINE
+	|		'color-bullet:' COLORVAL ENDNLINE
+	|		'colorT:' STRING ENDNLINE
+	|		'color:' COLORVAL ENDNLINE
+	|		'position:' POSVAL ENDNLINE
+	|		'alignment:' ALIGNVAL ENDLINE
+	|		'orientation:' ORIENTATION ENDNLINE
+	|		'oob:' TFVAL ENDNLINE
+	|		'format:' FORMATVAL ENDNLINE;
 	
 page: 		'page' O pageattr* pae* C;
 
@@ -65,7 +83,9 @@ imganumber: ('pos-x'
 		|	('height'
 		|	'width') ':' NVAL (UNIT)? ENDNLINE;
 		
-
+NOTVAL:		'-';
+		
+UNIT:		'mm' | '%' | 'pt';
 		 
 idval:		'id:' STRING ENDNLINE;
 
@@ -99,19 +119,11 @@ alignment:  'alignment:' ALIGNVAL ENDLINE;
 
 pageattr:	'orientation:' ORIENTATION ENDNLINE
 	|		'oob:' TFVAL ENDNLINE
-	|		'width' ':' NVAL ENDNLINE
-	|		'height' ':' NVAL ENDNLINE
-	|		'format:' FORMATVAL ENDNLINE;
+	|		'p_width' ':' NVAL ENDNLINE
+	|		'p_height' ':' NVAL ENDNLINE
+	|		'format:' FORMATVAL ENDNLINE
+	|		idval;
 	
-
-	
-
-
-//TERMINALI
-NOTVAL:		'-';
-		
-UNIT:		'mm' | '%' | 'pt';
-
 FORMATVAL:	'A0'
 	|		'A1' 
 	|		'A2'
@@ -120,8 +132,13 @@ FORMATVAL:	'A0'
 	|		'A5'
 	|		'A6';
 
-ORIENTATION:'hor' 
-	| 		'ver';
+ORIENTATION:('hor' | 'ver');
+	
+//TERMINALI
+
+TXTATF: 	'bold'
+	| 		'italics'
+	|		'underline';
 
 COLORVAL: 	'#' ([0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F]);
 

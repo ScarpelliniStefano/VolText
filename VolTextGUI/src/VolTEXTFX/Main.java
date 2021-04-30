@@ -59,8 +59,9 @@ Integer rowNumber=0;
         GridPane gridInterna=new GridPane();
         
         TextArea rowTextArea = new TextArea();
-        double rWidth = 20;
+        double rWidth = 50;
         double rHeight = 600;
+        rowTextArea.setMinWidth(rWidth);
         rowTextArea.setPrefSize(rWidth, rHeight);
         //rowTextArea.setDisable(true);
         rowTextArea.setEditable(false);
@@ -195,6 +196,7 @@ Integer rowNumber=0;
 
             	ScrollBar rowHorizScrollBar = (ScrollBar) rowTextArea.lookup(".scroll-bar:horizontal");
             	rowVertScrollBar.setVisible(false);
+            	rowVertScrollBar.setOpacity(0);
             	rowHorizScrollBar.setVisible(false);
 
             	int numL=(int) newValue.lines().count();

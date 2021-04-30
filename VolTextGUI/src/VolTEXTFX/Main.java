@@ -155,14 +155,25 @@ Integer rowNumber=0;
                 //System.out.println(vertScrollBar + " " + horizScrollBar);
                 if(vertScrollBar.getValue() == 1)
                 {
-                    vertScrollBar.setOnScroll(new EventHandler<ScrollEvent>() {
+                	vertScrollBar.valueProperty().addListener(new ChangeListener<Number>() {
+
+                        @Override
+                        public void changed(ObservableValue<? extends Number> arg0, Number oldV, Number newV) {
+                            // TODO Auto-generated method stub
+                        	System.out.println((int)(newV.doubleValue()*rowNumber));
+                            //System.out.println(newV);
+                        }
+                    });
+
+
+                    /*vertScrollBar.setOnScroll(new EventHandler<ScrollEvent>() {
 
                        @Override
                        public void handle(ScrollEvent arg0) {
                            // TODO Auto-generated method stub
                            System.out.println(vertScrollBar.getValue());
                        }
-                   });
+                   });*/
                 }
                 else
                 {

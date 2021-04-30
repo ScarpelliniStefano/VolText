@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import javax.swing.JFileChooser;
-
 import antlr.user_gui;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
@@ -19,6 +17,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.input.ScrollEvent;
@@ -28,16 +27,18 @@ import javafx.scene.layout.Region;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class Main extends Application {
 
-String currdir="";
+String currdir=""; 
+String currdirCart="";
 Integer rowNumber=0;
 	@Override
     public void start(Stage primaryStage) {
 		
-        primaryStage.setTitle("VolTex");
+        primaryStage.setTitle("VolText");
         primaryStage.setMinWidth(500);
         primaryStage.setMinHeight(400);
         primaryStage.setMaxWidth(1200);
@@ -126,14 +127,7 @@ Integer rowNumber=0;
 
         System.out.println(userTextArea.getScrollTop());
         
-        //Double spUser=((ScrollPane) userTextArea.getChildrenUnmodifiable().get(0)).getVvalue();
-        //ScrollPane spRow=(ScrollPane) rowTextArea.getChildrenUnmodifiable().get(0);
-       /* spUser.vvalueProperty().addListener(new ChangeListener<Number>() {
-			@Override
-			public void changed(ObservableValue<? extends Number> arg0, Number newV, Number oldV) {
-				spRow.setVvalue(newV.doubleValue());
-			}
-        });*/
+        
        
         
         userTextArea.textProperty().addListener(new ChangeListener<String>() {           
@@ -154,36 +148,66 @@ Integer rowNumber=0;
 					
 					
 				}
+				
+				 // TODO Auto-generated method stub
+                ScrollBar vertScrollBar = (ScrollBar) userTextArea.lookup(".scroll-bar:vertical");
+                //ScrollBar horizScrollBar = (ScrollBar) userTextArea.lookup(".scroll-bar:horizontal");
+                //System.out.println(vertScrollBar + " " + horizScrollBar);
+                if(vertScrollBar.getValue() == 1)
+                {
+                    vertScrollBar.setOnScroll(new EventHandler<ScrollEvent>() {
+
+                       @Override
+                       public void handle(ScrollEvent arg0) {
+                           // TODO Auto-generated method stub
+                           System.out.println(vertScrollBar.getValue());
+                       }
+                   });
+                }
+                else
+                {
+                    //System.out.println("nessuna ScrollBar presente.");
+                }
 					
 			}
         });
-        
+       
         
         btnApri.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent e) {
 
-                JFileChooser fileChooser = new JFileChooser();
+                FileChooser fileChooser = new FileChooser();
+                fileChooser.setTitle("Apri");
                 try {
                 	if(currdir=="")
-                		fileChooser.setCurrentDirectory(new File((new File(".").getCanonicalPath())));
-                	else
-                		fileChooser.setCurrentDirectory(new File(currdir));
+                		fileChooser.setInitialDirectory(new File((new File(".").getCanonicalPath())));
+                	else {
+                		String s=currdirCart;
+                		File fileDir=new File(s);
+                		fileChooser.setInitialDirectory(fileDir);
+                	}
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}    
-		    
+                
+                // Set extension filter
+         		FileChooser.ExtensionFilter extFilter = 
+         						new FileChooser.ExtensionFilter("TEXT files (*.txt)", "*.txt");
+         		fileChooser.getExtensionFilters().add(extFilter);
 		
                 //fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-                int result = fileChooser.showOpenDialog(null);
-                if (result == JFileChooser.APPROVE_OPTION) {
-                    File selectedFile = fileChooser.getSelectedFile();
-                    currdir = fileChooser.getCurrentDirectory().toString() + "/";
-                 	currdir=currdir.replace("\\", "/");
-
-                    try {
+                //int result = fileChooser.showOpenDialog(null);
+                //if (result == JFileChooser.APPROVE_OPTION) {
+                File selectedFile =null;
+                selectedFile=fileChooser.showOpenDialog(primaryStage);
+                if(selectedFile!=null) {
+                	try {
+                		currdirCart = selectedFile.getParent();
+                		currdir = selectedFile.getCanonicalPath().toString() + "/";
+                		currdir=currdir.replace("\\", "/");
 
                         Scanner myReader = new Scanner(selectedFile);
                         rowNumber=0;
@@ -226,20 +250,24 @@ Integer rowNumber=0;
                     return;
                 }
 
-                JFileChooser fileChooser = new JFileChooser();
-                fileChooser.setDialogTitle("Salva");
+                FileChooser fileChooser = new FileChooser();
+                fileChooser.setTitle("Salva");
 		    
 		 try {
-					fileChooser.setCurrentDirectory(new File((new File(".").getCanonicalPath())));
+					fileChooser.setInitialDirectory(new File((new File(".").getCanonicalPath())));
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 
-                int userSelection = fileChooser.showSaveDialog(null);
-
-                if (userSelection == JFileChooser.APPROVE_OPTION) {
-                    File fileToSave = fileChooser.getSelectedFile();
+                //int userSelection = fileChooser.showSaveDialog(null);
+		 		// Set extension filter
+         		FileChooser.ExtensionFilter extFilter = 
+         						new FileChooser.ExtensionFilter("TEXT files (*.txt)", "*.txt");
+         		fileChooser.getExtensionFilters().add(extFilter);
+		 		//if (userSelection == JFileChooser.APPROVE_OPTION) {
+                File fileToSave = fileChooser.showSaveDialog(primaryStage);
+                if(fileToSave!=null) {
                     try {
                         FileWriter myWriter = new FileWriter(fileToSave);
                         myWriter.write(userTextArea.getText());

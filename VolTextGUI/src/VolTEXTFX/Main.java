@@ -130,11 +130,74 @@ Integer rowNumber=0;
         
        
         
-        userTextArea.textProperty().addListener(new ChangeListener<String>() {           
+//        userTextArea.textProperty().addListener(new ChangeListener<String>() {           
+//
+//			@Override
+//			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+//				int numL=(int) newValue.lines().count();
+//				if(rowNumber<numL) {
+//					rowNumber=numL;
+//					rowTextArea.appendText(rowNumber.toString()+System.lineSeparator());
+//					
+//				}else if(rowNumber>numL) {
+//					rowNumber=numL;
+//					rowTextArea.setText("");
+//					for(int i=1;i<=rowNumber;i++) {
+//						rowTextArea.appendText(i+System.lineSeparator());
+//					}
+//					
+//					
+//				}
+//				
+//				 // TODO Auto-generated method stub
+//                ScrollBar vertScrollBar = (ScrollBar) userTextArea.lookup(".scroll-bar:vertical");
+//                //ScrollBar horizScrollBar = (ScrollBar) userTextArea.lookup(".scroll-bar:horizontal");
+//                //System.out.println(vertScrollBar + " " + horizScrollBar);
+//                if(vertScrollBar.getValue() == 1)
+//                {
+//                	vertScrollBar.valueProperty().addListener(new ChangeListener<Number>() {
+//
+//                        @Override
+//                        public void changed(ObservableValue<? extends Number> arg0, Number oldV, Number newV) {
+//                            // TODO Auto-generated method stub
+//                        	System.out.println((int)(newV.doubleValue()*rowNumber));
+//                            //System.out.println(newV);
+//                        }
+//                    });
+//
+//
+//                    /*vertScrollBar.setOnScroll(new EventHandler<ScrollEvent>() {
+//
+//                       @Override
+//                       public void handle(ScrollEvent arg0) {
+//                           // TODO Auto-generated method stub
+//                           System.out.println(vertScrollBar.getValue());
+//                       }
+//                   });*/
+//                }
+//                else
+//                {
+//                    //System.out.println("nessuna ScrollBar presente.");
+//                }
+//					
+//			}
+//        });
+        
+        userTextArea.textProperty().addListener(new ChangeListener<String>() {
+            public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
+            		
+            	
+            	
+            	ScrollBar vertScrollBar = (ScrollBar) userTextArea.lookup(".scroll-bar:vertical");
+            	
+            	
+            	ScrollBar rowVertScrollBar = (ScrollBar) rowTextArea.lookup(".scroll-bar:vertical");
 
-			@Override
-			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-				int numL=(int) newValue.lines().count();
+            	ScrollBar rowHorizScrollBar = (ScrollBar) rowTextArea.lookup(".scroll-bar:horizontal");
+            	rowVertScrollBar.setVisible(false);
+            	rowHorizScrollBar.setVisible(false);
+
+            	int numL=(int) newValue.lines().count();
 				if(rowNumber<numL) {
 					rowNumber=numL;
 					rowTextArea.appendText(rowNumber.toString()+System.lineSeparator());
@@ -148,41 +211,35 @@ Integer rowNumber=0;
 					
 					
 				}
-				
-				 // TODO Auto-generated method stub
-                ScrollBar vertScrollBar = (ScrollBar) userTextArea.lookup(".scroll-bar:vertical");
-                //ScrollBar horizScrollBar = (ScrollBar) userTextArea.lookup(".scroll-bar:horizontal");
-                //System.out.println(vertScrollBar + " " + horizScrollBar);
-                if(vertScrollBar.getValue() == 1)
-                {
-                	vertScrollBar.valueProperty().addListener(new ChangeListener<Number>() {
+            	
+            	vertScrollBar.valueProperty().addListener(new ChangeListener<Number>() {
 
-                        @Override
-                        public void changed(ObservableValue<? extends Number> arg0, Number oldV, Number newV) {
-                            // TODO Auto-generated method stub
-                        	System.out.println((int)(newV.doubleValue()*rowNumber));
-                            //System.out.println(newV);
-                        }
-                    });
-
-
-                    /*vertScrollBar.setOnScroll(new EventHandler<ScrollEvent>() {
-
-                       @Override
-                       public void handle(ScrollEvent arg0) {
-                           // TODO Auto-generated method stub
-                           System.out.println(vertScrollBar.getValue());
-                       }
-                   });*/
-                }
-                else
-                {
-                    //System.out.println("nessuna ScrollBar presente.");
-                }
-					
-			}
+                    @Override
+                    public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
+                        // TODO Auto-generated method stub
+                    	
+                    	rowTextArea.setScrollTop(userTextArea.getScrollTop());
+                    }
+                });
+            	
+            	
+            	
+            	rowTextArea.setScrollTop(userTextArea.getScrollTop());
+            }
         });
-       
+        
+        
+        userTextArea.textProperty().addListener(new ChangeListener<String>() {
+
+            @Override
+            public void changed(ObservableValue<? extends String> arg0, String old, String nuevo) {
+                
+
+            	rowTextArea.setScrollTop(userTextArea.getScrollTop());
+            }
+        });
+        
+//       
         
         btnApri.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -245,6 +302,8 @@ Integer rowNumber=0;
                     msg("File non valido!", consoleTextArea, true);
                     //JOptionPane.showMessageDialog(null,"File non valido!");
                 }
+                
+                //rowTextArea.setScrollTop(Integer.MIN_VALUE);
 
             }
         });
@@ -333,6 +392,10 @@ Integer rowNumber=0;
         Scene scene = new Scene(grid, 700, 700);
         primaryStage.setScene(scene);
         primaryStage.show();
+        
+        
+        
+        
 
         Region region = ( Region ) consoleTextArea.lookup( ".content" );
         region.setStyle( "-fx-background-color: #272326;" );

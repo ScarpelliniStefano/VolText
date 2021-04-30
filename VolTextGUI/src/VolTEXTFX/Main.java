@@ -59,7 +59,7 @@ Integer rowNumber=0;
         GridPane gridInterna=new GridPane();
         
         TextArea rowTextArea = new TextArea();
-        double rWidth = 50;
+        double rWidth = 60;
         double rHeight = 600;
         rowTextArea.setMinWidth(rWidth);
         rowTextArea.setPrefSize(rWidth, rHeight);

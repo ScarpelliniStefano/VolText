@@ -19,9 +19,9 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
@@ -61,24 +61,39 @@ Integer rowNumber=0;
         double rWidth = 20;
         double rHeight = 600;
         rowTextArea.setPrefSize(rWidth, rHeight);
-        rowTextArea.setDisable(true);
+        //rowTextArea.setDisable(true);
+        rowTextArea.setEditable(false);
+        rowTextArea.setStyle(" -fx-vbar-policy: never;  -fx-padding:0; ");
+        rowTextArea.setMouseTransparent(true);
+        rowTextArea.setFocusTraversable(false);
+        rowTextArea.applyCss();
         gridInterna.add(rowTextArea, 0, 1);
         rowTextArea.setText("");
+        
         TextArea userTextArea = new TextArea();
 
         double prefWidth = 1000;
         double prefHeight = 600;
         userTextArea.setPrefSize(prefWidth, prefHeight);
-        //userTextArea.setStyle(" -fx-highlight-fill: lightgrey; -fx-highlight-text-fill: black; -fx-text-fill: wheat; ");
+        //userTextArea.setStyle(" -fx-vbar-policy: never;  -fx-padding:0; ");
         //userTextArea.setMaxSize(3*prefWidth, 3*prefHeight);
-        ScrollPane panelSUser=new ScrollPane();
-        
-
         gridInterna.add(userTextArea, 1, 1);
-        panelSUser.setContent(gridInterna);
-        panelSUser.setFitToWidth(true);
-        
-        grid.add(panelSUser, 1, 1);
+        //HBox textBox=new HBox();
+        //textBox.getChildren().addAll(rowTextArea,userTextArea);
+        //ScrollPane panelSUser=new ScrollPane();
+        //panelSUser.setContent(textBox);
+        //panelSUser.setFitToWidth(true);
+        userTextArea.setOnScroll(new EventHandler<ScrollEvent>() {
+
+			@Override
+			public void handle(ScrollEvent arg0) {
+				// TODO Auto-generated method stub
+				rowTextArea.positionCaret(userTextArea.getCaretPosition());
+			}
+        	
+        });
+   
+        grid.add(gridInterna, 1, 1);
         
         Button btnApri = new Button("Apri grammatica");
         btnApri.setPrefSize(140,50);
@@ -110,6 +125,7 @@ Integer rowNumber=0;
         grid.add(consoleTextArea, 1, 7);
 
         System.out.println(userTextArea.getScrollTop());
+        
         //Double spUser=((ScrollPane) userTextArea.getChildrenUnmodifiable().get(0)).getVvalue();
         //ScrollPane spRow=(ScrollPane) rowTextArea.getChildrenUnmodifiable().get(0);
        /* spUser.vvalueProperty().addListener(new ChangeListener<Number>() {
@@ -178,7 +194,8 @@ Integer rowNumber=0;
                             userTextArea.appendText(myReader.nextLine() + System.lineSeparator());
                         }
                         myReader.close();
-                        
+                        rowTextArea.setMinHeight(userTextArea.getHeight());
+
 
                         msg("File aperto", consoleTextArea, false);
 

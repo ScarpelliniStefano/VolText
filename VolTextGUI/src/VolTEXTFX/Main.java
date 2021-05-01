@@ -32,7 +32,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-String currdir=""; 
+
 String currdirCart="";
 Integer rowNumber=0;
 	@Override
@@ -251,7 +251,7 @@ Integer rowNumber=0;
                 FileChooser fileChooser = new FileChooser();
                 fileChooser.setTitle("Apri");
                 try {
-                	if(currdir=="")
+                	if(currdirCart=="")
                 		fileChooser.setInitialDirectory(new File((new File(".").getCanonicalPath())));
                 	else {
                 		String s=currdirCart;
@@ -275,9 +275,8 @@ Integer rowNumber=0;
                 selectedFile=fileChooser.showOpenDialog(primaryStage);
                 if(selectedFile!=null) {
                 	try {
-                		currdirCart = selectedFile.getParent();
-                		currdir = selectedFile.getCanonicalPath().toString() + "/";
-                		currdir=currdir.replace("\\", "/");
+                		currdirCart = selectedFile.getParent().toString() + "/";
+                		currdirCart=currdirCart.replace("\\", "/");
 
                         Scanner myReader = new Scanner(selectedFile);
                         rowNumber=0;
@@ -377,7 +376,7 @@ Integer rowNumber=0;
                 
                 
                 try {
-					errors=user_gui.generaPDF(grammatica, currdir);
+					errors=user_gui.generaPDF(grammatica, currdirCart);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

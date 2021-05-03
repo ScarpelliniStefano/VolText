@@ -47,7 +47,6 @@ Integer rowNumber=0;
 
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
-        grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
         //grid.setStyle("-fx-background-color: #2e3534; -fx-text-fill: white;");
@@ -57,7 +56,6 @@ Integer rowNumber=0;
         grid.add(scenetitle, 1, 0, 1, 1);
         
         GridPane gridInterna=new GridPane();
-        
         TextArea rowTextArea = new TextArea();
         double rWidth = 60;
         double rHeight = 600;

@@ -3,6 +3,7 @@ package VolTEXTFX;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -33,8 +34,13 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
 
-String currdirCart="";
-Integer rowNumber=0;
+	String currdir=""; 
+	String currdirCart="";
+	Integer rowNumber=0;
+	
+	/**
+	 * Crea un'interfaccia a livello manuale per il programma.
+	 */
 	@Override
     public void start(Stage primaryStage) {
 		
@@ -49,19 +55,19 @@ Integer rowNumber=0;
         grid.setAlignment(Pos.CENTER);
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
-        //grid.setStyle("-fx-background-color: #2e3534; -fx-text-fill: white;");
 
         Text scenetitle = new Text("VolText");
         scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         grid.add(scenetitle, 1, 0, 1, 1);
         
         GridPane gridInterna=new GridPane();
+        
         TextArea rowTextArea = new TextArea();
         double rWidth = 60;
         double rHeight = 600;
+        rowTextArea.setId("line");
         rowTextArea.setMinWidth(rWidth);
         rowTextArea.setPrefSize(rWidth, rHeight);
-        //rowTextArea.setDisable(true);
         rowTextArea.setEditable(false);
         rowTextArea.setStyle(" -fx-vbar-policy: never;  -fx-padding:0; ");
         rowTextArea.setMouseTransparent(true);
@@ -75,14 +81,8 @@ Integer rowNumber=0;
         double prefWidth = 1000;
         double prefHeight = 600;
         userTextArea.setPrefSize(prefWidth, prefHeight);
-        //userTextArea.setStyle(" -fx-vbar-policy: never;  -fx-padding:0; ");
-        //userTextArea.setMaxSize(3*prefWidth, 3*prefHeight);
+        userTextArea.setId("textarea_main");
         gridInterna.add(userTextArea, 1, 1);
-        //HBox textBox=new HBox();
-        //textBox.getChildren().addAll(rowTextArea,userTextArea);
-        //ScrollPane panelSUser=new ScrollPane();
-        //panelSUser.setContent(textBox);
-        //panelSUser.setFitToWidth(true);
         userTextArea.setOnScroll(new EventHandler<ScrollEvent>() {
 
 			@Override
@@ -92,6 +92,7 @@ Integer rowNumber=0;
 			}
         	
         });
+        userTextArea.applyCss();
    
         grid.add(gridInterna, 1, 1);
         
@@ -126,62 +127,6 @@ Integer rowNumber=0;
 
         System.out.println(userTextArea.getScrollTop());
         
-        
-       
-        
-//        userTextArea.textProperty().addListener(new ChangeListener<String>() {           
-//
-//			@Override
-//			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-//				int numL=(int) newValue.lines().count();
-//				if(rowNumber<numL) {
-//					rowNumber=numL;
-//					rowTextArea.appendText(rowNumber.toString()+System.lineSeparator());
-//					
-//				}else if(rowNumber>numL) {
-//					rowNumber=numL;
-//					rowTextArea.setText("");
-//					for(int i=1;i<=rowNumber;i++) {
-//						rowTextArea.appendText(i+System.lineSeparator());
-//					}
-//					
-//					
-//				}
-//				
-//				 // TODO Auto-generated method stub
-//                ScrollBar vertScrollBar = (ScrollBar) userTextArea.lookup(".scroll-bar:vertical");
-//                //ScrollBar horizScrollBar = (ScrollBar) userTextArea.lookup(".scroll-bar:horizontal");
-//                //System.out.println(vertScrollBar + " " + horizScrollBar);
-//                if(vertScrollBar.getValue() == 1)
-//                {
-//                	vertScrollBar.valueProperty().addListener(new ChangeListener<Number>() {
-//
-//                        @Override
-//                        public void changed(ObservableValue<? extends Number> arg0, Number oldV, Number newV) {
-//                            // TODO Auto-generated method stub
-//                        	System.out.println((int)(newV.doubleValue()*rowNumber));
-//                            //System.out.println(newV);
-//                        }
-//                    });
-//
-//
-//                    /*vertScrollBar.setOnScroll(new EventHandler<ScrollEvent>() {
-//
-//                       @Override
-//                       public void handle(ScrollEvent arg0) {
-//                           // TODO Auto-generated method stub
-//                           System.out.println(vertScrollBar.getValue());
-//                       }
-//                   });*/
-//                }
-//                else
-//                {
-//                    //System.out.println("nessuna ScrollBar presente.");
-//                }
-//					
-//			}
-//        });
-        
         userTextArea.textProperty().addListener(new ChangeListener<String>() {
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
             		
@@ -193,8 +138,9 @@ Integer rowNumber=0;
             	ScrollBar rowVertScrollBar = (ScrollBar) rowTextArea.lookup(".scroll-bar:vertical");
 
             	ScrollBar rowHorizScrollBar = (ScrollBar) rowTextArea.lookup(".scroll-bar:horizontal");
+            	rowVertScrollBar.setOpacity(1);
             	rowVertScrollBar.setVisible(false);
-            	rowVertScrollBar.setOpacity(0);
+            	rowVertScrollBar.applyCss();
             	rowHorizScrollBar.setVisible(false);
 
             	int numL=(int) newValue.lines().count();
@@ -238,9 +184,7 @@ Integer rowNumber=0;
             	rowTextArea.setScrollTop(userTextArea.getScrollTop());
             }
         });
-        
-//       
-        
+
         btnApri.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
@@ -266,9 +210,6 @@ Integer rowNumber=0;
          						new FileChooser.ExtensionFilter("TEXT files (*.txt)", "*.txt");
          		fileChooser.getExtensionFilters().add(extFilter);
 		
-                //fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-                //int result = fileChooser.showOpenDialog(null);
-                //if (result == JFileChooser.APPROVE_OPTION) {
                 File selectedFile =null;
                 selectedFile=fileChooser.showOpenDialog(primaryStage);
                 if(selectedFile!=null) {
@@ -299,14 +240,9 @@ Integer rowNumber=0;
                 else
                 {
                     msg("File non valido!", consoleTextArea, true);
-                    //JOptionPane.showMessageDialog(null,"File non valido!");
                 }
-                
-                //rowTextArea.setScrollTop(Integer.MIN_VALUE);
-
             }
         });
-
 
         btnSalva.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -329,22 +265,18 @@ Integer rowNumber=0;
 					e1.printStackTrace();
 				}
 
-                //int userSelection = fileChooser.showSaveDialog(null);
 		 		// Set extension filter
          		FileChooser.ExtensionFilter extFilter = 
          						new FileChooser.ExtensionFilter("TEXT files (*.txt)", "*.txt");
          		fileChooser.getExtensionFilters().add(extFilter);
-		 		//if (userSelection == JFileChooser.APPROVE_OPTION) {
                 File fileToSave = fileChooser.showSaveDialog(primaryStage);
                 if(fileToSave!=null) {
                     try {
                         FileWriter myWriter = new FileWriter(fileToSave);
                         myWriter.write(userTextArea.getText());
                         myWriter.close();
-                        //JOptionPane.showMessageDialog(null,"File salvato");
                         msg("File salvato", consoleTextArea, false);
                     } catch (IOException exc) {
-                        //JOptionPane.showMessageDialog(null,"Errore: " + exc.getMessage());
                         msg("Errore: " + exc.getMessage(), consoleTextArea, true);
                         exc.printStackTrace();
                     }
@@ -356,7 +288,6 @@ Integer rowNumber=0;
                 }
             }
         });
-
 
         btnCrea.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -371,7 +302,6 @@ Integer rowNumber=0;
                
                 String grammatica = userTextArea.getText();
                 List<String> errors=new ArrayList<String>();
-                
                 
                 try {
 					errors=user_gui.generaPDF(grammatica, currdirCart);
@@ -388,19 +318,18 @@ Integer rowNumber=0;
             }
         });
 
-        Scene scene = new Scene(grid, 700, 700);
+        Scene scene = new Scene(grid, 700, 700);        
+        try {
+			scene.getStylesheets().add(new File("src\\VolTEXTFX\\application.css").toURI().toURL().toString());
+		} catch (MalformedURLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
         primaryStage.setScene(scene);
         primaryStage.show();
-        
-        
-        
-        
 
         Region region = ( Region ) consoleTextArea.lookup( ".content" );
         region.setStyle( "-fx-background-color: #272326;" );
-
-//        Region region2 = ( Region ) userTextArea.lookup( ".content" );
-//        region2.setStyle( "-fx-background-color: #272326;" );
 
     }
 
@@ -409,7 +338,6 @@ Integer rowNumber=0;
         launch(args);
     }
 
-
     public void msg(String s, TextArea a,boolean bad)
     {
     	if(bad) {
@@ -417,6 +345,7 @@ Integer rowNumber=0;
     	}
         a.setText(s);
     }
+    
     public void msgAdd(String s, TextArea a)
     {
         a.appendText(s+System.lineSeparator());

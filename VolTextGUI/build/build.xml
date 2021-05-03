@@ -20,89 +20,89 @@
 		<mkdir dir="externalLibs" />
 	
 		<copy todir="externalLibs">
-			<fileset dir="C:\Users\stefa\Documents\VolTEXT\copy_prj_VolText\VoltextGUI\javafx-sdk-11.0.2\lib">
-				<filename name="javafx.swing.jar"/>
-			</fileset>
-		</copy>
-		<copy todir="externalLibs">
-			<fileset dir="C:\Users\stefa\Documents\VolTEXT\copy_prj_VolText\VoltextGUI\javafx-sdk-11.0.2\lib">
-				<filename name="javafx-swt.jar"/>
-			</fileset>
-		</copy>
-		<copy todir="externalLibs">
-			<fileset dir="C:\Users\stefa\Documents\VolTEXT\copy_prj_VolText\VoltextGUI\lib">
-				<filename name="fontbox-2.0.22.jar"/>
-			</fileset>
-		</copy>
-		<copy todir="externalLibs">
-			<fileset dir="C:\Users\stefa\Documents\VolTEXT\copy_prj_VolText\VoltextGUI\javafx-sdk-11.0.2\lib">
-				<filename name="javafx.base.jar"/>
-			</fileset>
-		</copy>
-		<copy todir="externalLibs">
-			<fileset dir="C:\Users\stefa\Documents\VolTEXT\copy_prj_VolText\VoltextGUI\lib">
-				<filename name="slf4j-simple-1.7.9.jar"/>
-			</fileset>
-		</copy>
-		<copy todir="externalLibs">
-			<fileset dir="C:\Users\stefa\Documents\VolTEXT\copy_prj_VolText\VoltextGUI\lib">
-				<filename name="pdfbox2-layout-1.0.0.jar"/>
-			</fileset>
-		</copy>
-		<copy todir="externalLibs">
-			<fileset dir="C:\Users\stefa\Documents\VolTEXT\copy_prj_VolText\VoltextGUI\javafx-sdk-11.0.2\lib">
-				<filename name="javafx.controls.jar"/>
-			</fileset>
-		</copy>
-		<copy todir="externalLibs">
-			<fileset dir="C:\Users\stefa\Documents\VolTEXT\copy_prj_VolText\VoltextGUI\lib">
-				<filename name="antlr-runtime-4.9.1.jar"/>
-			</fileset>
-		</copy>
-		<copy todir="externalLibs">
-			<fileset dir="C:\Users\stefa\Documents\VolTEXT\copy_prj_VolText\VoltextGUI\javafx-sdk-11.0.2\lib">
+			<fileset dir="C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib">
 				<filename name="javafx.fxml.jar"/>
 			</fileset>
 		</copy>
 		<copy todir="externalLibs">
-			<fileset dir="C:\Users\stefa\Documents\VolTEXT\copy_prj_VolText\VoltextGUI\javafx-sdk-11.0.2\lib">
+			<fileset dir="C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib">
+				<filename name="pdfbox2-layout-1.0.0.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib">
+				<filename name="antlr-runtime-4.9.1.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib">
+				<filename name="javafx-swt.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib">
+				<filename name="javafx.swing.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib">
 				<filename name="javafx.media.jar"/>
 			</fileset>
 		</copy>
 		<copy todir="externalLibs">
-			<fileset dir="C:\Users\stefa\Documents\VolTEXT\copy_prj_VolText\VoltextGUI\lib">
+			<fileset dir="C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib">
+				<filename name="javafx.controls.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib">
 				<filename name="libraryVoltext.jar"/>
 			</fileset>
 		</copy>
 		<copy todir="externalLibs">
-			<fileset dir="C:\Users\stefa\Documents\VolTEXT\copy_prj_VolText\VoltextGUI\lib">
-				<filename name="slf4j-api-1.7.9.jar"/>
-			</fileset>
-		</copy>
-		<copy todir="externalLibs">
-			<fileset dir="C:\Users\stefa\Documents\VolTEXT\copy_prj_VolText\VoltextGUI\javafx-sdk-11.0.2\lib">
-				<filename name="javafx.graphics.jar"/>
-			</fileset>
-		</copy>
-		<copy todir="externalLibs">
-			<fileset dir="C:\Users\stefa\Documents\VolTEXT\copy_prj_VolText\VoltextGUI\lib">
-				<filename name="commons-logging-1.2.jar"/>
-			</fileset>
-		</copy>
-		<copy todir="externalLibs">
-			<fileset dir="C:\Users\stefa\Documents\VolTEXT\copy_prj_VolText\VoltextGUI\javafx-sdk-11.0.2\lib">
+			<fileset dir="C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib">
 				<filename name="javafx.web.jar"/>
 			</fileset>
 		</copy>
 		<copy todir="externalLibs">
-			<fileset dir="C:\Users\stefa\Documents\VolTEXT\copy_prj_VolText\VoltextGUI\lib">
+			<fileset dir="C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib">
+				<filename name="fontbox-2.0.22.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib">
 				<filename name="pdfbox-2.0.22.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib">
+				<filename name="javafx.graphics.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib">
+				<filename name="commons-logging-1.2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib">
+				<filename name="slf4j-api-1.7.9.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib">
+				<filename name="javafx.base.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib">
+				<filename name="slf4j-simple-1.7.9.jar"/>
 			</fileset>
 		</copy>
 	
 		<mkdir dir="project" />
 		<copy todir="project">
-			<fileset dir="C:\Users\stefa\Documents\VolTEXT\copy_prj_VolText\VoltextGUI">
+			<fileset dir="C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI">
 				<include name="src/**" />
 			</fileset>
 		</copy>

@@ -38,12 +38,21 @@
 	-fx-text-fill: #050505;
 	-fx-border-color: #000000;
 	-fx-background-radius: 0;
+	-fx-vbar-policy: never;  
+	-fx-padding:0;
 }
 
 #textarea_main{
 	-fx-text-fill: #050505;
 	-fx-background-radius: 0;
 	-fx-border-color: #000000;
+}
+
+#consoleTextArea{
+	-fx-highlight-fill: lightgrey; 
+	-fx-highlight-text-fill: black; 
+	-fx-text-fill: wheat; 
+	-fx-font-size: 14pt;
 }
 
 #textarea_main .content{
@@ -84,4 +93,29 @@
 
 #textf {
  	-fx-background-color: #222222;
+}
+
+
+#bApri{
+	-fx-background-color: white; 
+	-fx-text-fill: black; 
+	-fx-border-color: red; 
+	-fx-border-width: 2px; 
+	-fx-font-size: 2em;
+}
+
+#bSalva{
+	-fx-background-color: white; 
+	-fx-text-fill: black; 
+	-fx-border-color: red; 
+	-fx-border-width: 2px; 
+	-fx-font-size: 2em;
+}
+
+#bCrea{
+	-fx-background-color: red; 
+	-fx-text-fill: white; 
+	-fx-border-color: red; 
+	-fx-border-width: 4px; 
+	-fx-font-size: 2em;
 }

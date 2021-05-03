@@ -25,16 +25,12 @@ import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
+
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class Main extends Application {
 
-
-	String currdir=""; 
 	String currdirCart="";
 	Integer rowNumber=0;
 	
@@ -56,12 +52,10 @@ public class Main extends Application {
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
 
-        Text scenetitle = new Text("VolText");
-        scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-        grid.add(scenetitle, 1, 0, 1, 1);
         
-        GridPane gridInterna=new GridPane();
-        
+        HBox hboxTextArea=new HBox(0);
+        hboxTextArea.setAlignment(Pos.CENTER);
+               
         TextArea rowTextArea = new TextArea();
         double rWidth = 60;
         double rHeight = 600;
@@ -69,20 +63,17 @@ public class Main extends Application {
         rowTextArea.setMinWidth(rWidth);
         rowTextArea.setPrefSize(rWidth, rHeight);
         rowTextArea.setEditable(false);
-        rowTextArea.setStyle(" -fx-vbar-policy: never;  -fx-padding:0; ");
         rowTextArea.setMouseTransparent(true);
         rowTextArea.setFocusTraversable(false);
-        rowTextArea.applyCss();
-        gridInterna.add(rowTextArea, 0, 1);
+        hboxTextArea.getChildren().add(rowTextArea);
         rowTextArea.setText("");
         
         TextArea userTextArea = new TextArea();
-
         double prefWidth = 1000;
         double prefHeight = 600;
         userTextArea.setPrefSize(prefWidth, prefHeight);
         userTextArea.setId("textarea_main");
-        gridInterna.add(userTextArea, 1, 1);
+        hboxTextArea.getChildren().add(userTextArea);
         userTextArea.setOnScroll(new EventHandler<ScrollEvent>() {
 
 			@Override
@@ -94,34 +85,30 @@ public class Main extends Application {
         });
         userTextArea.applyCss();
    
-        grid.add(gridInterna, 1, 1);
+        grid.add(hboxTextArea, 1, 1);
         
-        Button btnApri = new Button("Apri grammatica");
+        Button btnApri = new Button("Open...");
         btnApri.setPrefSize(140,50);
+        btnApri.setId("bApri");
         HBox hbBtn = new HBox(10);
         hbBtn.setAlignment(Pos.CENTER);
         hbBtn.getChildren().add(btnApri);
+
+        Button btnSalva = new Button("Save...");
+        btnSalva.setPrefSize(140,50);
+        btnSalva.setId("bSalva");
+        hbBtn.getChildren().add(btnSalva);
+
+        Button btnCrea = new Button("Create");
+        btnCrea.setId("bCrea");
+        btnCrea.setPrefSize(140,50);
+        hbBtn.getChildren().add(btnCrea);
         grid.add(hbBtn, 1, 4);
 
-        Button btnSalva = new Button("Salva grammatica");
-        btnSalva.setPrefSize(140,50);
-        HBox hbBtn2 = new HBox(10);
-        hbBtn2.setAlignment(Pos.CENTER);
-        hbBtn2.getChildren().add(btnSalva);
-        grid.add(hbBtn2, 1, 5);
-
-        Button btnCrea = new Button("Crea PDF");
-        btnCrea.setStyle("-fx-background-color: green; -fx-text-fill: white; -fx-border-color: darkgreen; -fx-border-width: 2px; -fx-font-size: 1em;");
-        btnCrea.setPrefSize(100,75);
-        HBox hbBtn3 = new HBox(10);
-        hbBtn3.setAlignment(Pos.CENTER);
-        hbBtn3.getChildren().add(btnCrea);
-        grid.add(hbBtn3, 1, 6);
-
         TextArea consoleTextArea = new TextArea();
+        consoleTextArea.setId("consoleTextArea");
         consoleTextArea.setPrefSize(prefWidth, 300);
         consoleTextArea.setEditable(false);
-        consoleTextArea.setStyle(" -fx-highlight-fill: lightgrey; -fx-highlight-text-fill: black; -fx-text-fill: wheat; ");
         consoleTextArea.setText("");
         grid.add(consoleTextArea, 1, 7);
 
@@ -341,7 +328,9 @@ public class Main extends Application {
     public void msg(String s, TextArea a,boolean bad)
     {
     	if(bad) {
-    		a.setStyle(" -fx-highlight-fill: lightgrey; -fx-highlight-text-fill: black; -fx-text-fill: red; ");
+    		a.setStyle("-fx-text-fill: red;");
+    	}else {
+    		a.setStyle("-fx-text-fill: wheat;");
     	}
         a.setText(s);
     }

@@ -1,6 +1,88 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 
+<<<<<<< Updated upstream
 .text-area .scroll-bar:vertical:disabled {
     -fx-pref-width: 1;
     -fx-opacity: 0;
 }
+=======
+#line .scroll-bar {
+    -fx-pref-width: 0.05;
+    -fx-opacity: 0;  
+    -fx-background-color: #ffffff;
+    -fx-border-color: #ffffff;
+}
+
+#line .thumb {
+    -fx-background-color :derive(black,90.0%);
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2.0em;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color :#aaaaaa;
+    -fx-background-insets : 0.0, 0.0, 0.0;
+    -fx-background-radius: 0em;
+}
+
+.text-area:focused{
+	-fx-focus-color: transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+}
+
+#line .content{
+	-fx-background-color: #cccccc;
+	-fx-background-radius: 0;
+	-fx-padding: 3;
+}
+
+#line .text{
+	-fx-text-alignment: right;
+}
+
+#line {
+	-fx-text-fill: #050505;
+	-fx-background-radius: 0;
+}
+
+#textarea_main{
+	-fx-text-fill: #111111;
+	-fx-background-radius: 0;
+	-fx-border-color: #cccccc;
+}
+
+#textarea_main .content{
+	-fx-background-color: #eeeeee;
+	-fx-background-radius: 0;
+}
+
+.increment-button{
+	-fx-background-color: #272326;
+	-fx-border-color: #272326;
+	-fx-scale-shape: true;
+	-fx-padding: 3;
+	-fx-border-width: 2;
+}
+
+.decrement-button{
+	-fx-background-color: #272326;
+	-fx-border-color: #272326;
+	-fx-scale-shape: true;
+	-fx-padding: 3;
+	-fx-border-width: 2;
+}
+
+.increment-arrow{
+	-fx-background-color: #ffffff;
+	-fx-scale-shape: true;
+}
+
+.decrement-arrow{
+	-fx-background-color: #ffffff;
+	-fx-scale-shape: true;
+}
+
+.track{
+	-fx-background-color: #272326;
+}
+>>>>>>> Stashed changes

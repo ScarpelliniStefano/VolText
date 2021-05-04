@@ -10,6 +10,12 @@ public class PDF_Item extends Item {
 		setAuthor("");
 		setPath("./");
 	}
+	public PDF_Item(String global_path) {
+		super();
+		setTitle("Document");
+		setAuthor("");
+		setPath(global_path);
+	}
 	private String Title;
 	private String Path;
 	private String Author;

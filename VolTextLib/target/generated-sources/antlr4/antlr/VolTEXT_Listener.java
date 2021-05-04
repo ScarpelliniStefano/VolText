@@ -71,7 +71,10 @@ public class VolTEXT_Listener implements VolTextListener {
 	@Override public void enterPdf(VolTextParser.PdfContext ctx) { 
 		try {
 			PDF_doc = new PDDocument();
-			container.setDoc(new PDF_Item());
+			if(antlr.user_gui.global_path!="")
+				container.setDoc(new PDF_Item(antlr.user_gui.global_path));
+			else
+				container.setDoc(new PDF_Item());
 		}
 		catch(Exception ex)
 		{

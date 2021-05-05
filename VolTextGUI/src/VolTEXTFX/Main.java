@@ -297,10 +297,15 @@ public class Main extends Application {
 					e1.printStackTrace();
 				}
                 msg("",consoleTextArea,false);
+                Boolean criticalErrors=false;
                 for(String msg:errors) {
+                	if(msg.contains("Impossibile accedere al file. Il file è utilizzato da un altro processo")
+                			| msg.contains("Impossibile trovare il percorso specificato"))
+                		criticalErrors=true;
                 	msgAdd(msg, consoleTextArea);
                 }
-                msgAdd("PDF GENERATO!",consoleTextArea);
+                if(!criticalErrors)
+                	msgAdd("PDF GENERATO!",consoleTextArea);
                 		
             }
         });

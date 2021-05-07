@@ -248,7 +248,6 @@ public class Main extends Application {
 		 try {
 					fileChooser.setInitialDirectory(new File((new File(".").getCanonicalPath())));
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 
@@ -297,10 +296,15 @@ public class Main extends Application {
 					e1.printStackTrace();
 				}
                 msg("",consoleTextArea,false);
+                Boolean criticalErrors=false;
                 for(String msg:errors) {
+                	if(msg.contains("Impossibile accedere al file. Il file è utilizzato da un altro processo")
+                			| msg.contains("Impossibile trovare il percorso specificato"))
+                		criticalErrors=true;
                 	msgAdd(msg, consoleTextArea);
                 }
-                msgAdd("PDF GENERATO!",consoleTextArea);
+                if(!criticalErrors)
+                	msgAdd("PDF GENERATO!",consoleTextArea);
                 		
             }
         });
@@ -309,7 +313,6 @@ public class Main extends Application {
         try {
 			scene.getStylesheets().add(new File("src\\VolTEXTFX\\application.css").toURI().toURL().toString());
 		} catch (MalformedURLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
         primaryStage.setScene(scene);

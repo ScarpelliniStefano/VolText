@@ -146,7 +146,7 @@
 			</fileset>
 		</copy>
 	
-		<javac includeantruntime="false" source="12" target="12" srcdir="build/src" destdir="build/classes" encoding="Cp1252">
+		<javac includeantruntime="false" release="12" srcdir="build/src" destdir="build/classes" encoding="Cp1252">
 			<classpath>
 				<fileset dir="build/libs">
 					<include name="*"/>

@@ -14,7 +14,7 @@ Per l'avvio del programma è sufficiente scaricare una versione aggiornata del J
 Nella cartella Documentation è presente la documentazione in formato DOCX e PDF, in Italiano e in Inglese.
 
 
-## Fore the english users
+## For the english users
 The software is developed as a project for the Formal Languages and Compilers course of the AY 2020/2021 at the University of Bergamo.
 
 The repository is the union of the VolText library and the VolTextGUI, as well as the addition of documentation.

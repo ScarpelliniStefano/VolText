@@ -1478,17 +1478,23 @@ public class VolTEXT_Listener implements VolTextListener {
 						}
 						 
 						RomanEnumerator e = new RomanEnumerator();
-						if(item.isOrdered()) {
-							p.add(new Indent(e.next() + ". ", 4, SpaceUnit.em, item.getFontSize(),font.getPlainFont(), Alignment.Right));
-						}else {
-							p.add(new Indent(bullet, 4, SpaceUnit.em, item.getFontSize(),font.getPlainFont(), Alignment.Right));
-						}
+						
 						
 						if(font==null) 
 						{
+							if(item.isOrdered()) {
+								p.add(new Indent(e.next() + ". ", 4, SpaceUnit.em, item.getFontSize(),rFont, Alignment.Right,item.getRGBBulletColor()));
+							}else {
+								p.add(new Indent(bullet, 4, SpaceUnit.em, item.getFontSize(),rFont, Alignment.Right,item.getRGBBulletColor()));
+							}
 							p.addMarkup(elem+"\n", item.getFontSize(), rFont, bFont, iFont, biFont);
 						}
 						else {
+							if(item.isOrdered()) {
+								p.add(new Indent(e.next() + ". ", 4, SpaceUnit.em, item.getFontSize(),font.getPlainFont(), Alignment.Right,item.getRGBBulletColor()));
+							}else {
+								p.add(new Indent(bullet, 4, SpaceUnit.em, item.getFontSize(),font.getPlainFont(), Alignment.Right,item.getRGBBulletColor()));
+							}
 							p.addMarkup(elem+"\n", item.getFontSize(), font);
 						}
 					}
@@ -2788,15 +2794,21 @@ public class VolTEXT_Listener implements VolTextListener {
 					}
 					 
 					RomanEnumerator e = new RomanEnumerator();
-					if(li.isOrdered()) {
-						p.add(new Indent(e.next() + ". ", 4, SpaceUnit.em, li.getFontSize(),font.getPlainFont(), Alignment.Right,li.getRGBBulletColor()));
-					}else {
-						p.add(new Indent(bullet, 4, SpaceUnit.em, li.getFontSize(),font.getPlainFont(), Alignment.Right,li.getRGBBulletColor()));
-					}
+					
 					if(font!=null) {
+						if(li.isOrdered()) {
+							p.add(new Indent(e.next() + ". ", 4, SpaceUnit.em, li.getFontSize(),font.getPlainFont(), Alignment.Right,li.getRGBBulletColor()));
+						}else {
+							p.add(new Indent(bullet, 4, SpaceUnit.em, li.getFontSize(),font.getPlainFont(), Alignment.Right,li.getRGBBulletColor()));
+						}
 						p.addMarkup(elem+"\n", li.getFontSize(), font);
 						p.addText("\n",li.getFontSize(), font.getPlainFont());
 					}else {
+						if(li.isOrdered()) {
+							p.add(new Indent(e.next() + ". ", 4, SpaceUnit.em, li.getFontSize(),rFont, Alignment.Right,li.getRGBBulletColor()));
+						}else {
+							p.add(new Indent(bullet, 4, SpaceUnit.em, li.getFontSize(),rFont, Alignment.Right,li.getRGBBulletColor()));
+						}
 						p.addMarkup(elem+"\n", li.getFontSize(), rFont, bFont, iFont, biFont);
 						p.addText("\n",li.getFontSize(), rFont);
 					}
@@ -3944,17 +3956,19 @@ public class VolTEXT_Listener implements VolTextListener {
 	public void enterColorBullet(ColorBulletContext ctx) {
 		// TODO Auto-generated method stub
 				Color c = null;
+				String s=ctx.getChild(0).toString().toLowerCase();
 				switch(ctx.getChild(0).toString().toLowerCase()) {
 					case "color-bullet:":
 						 String colore= ctx.COLORVAL().toString();
 						 int r = Integer.parseInt(colore.substring(1, 3), 16);
 						 int g = Integer.parseInt(colore.substring(3, 5), 16);
 						 int b = Integer.parseInt(colore.substring(5, 7), 16);
-						 int a = Integer.parseInt(colore.substring(7, 9), 16);
+						 int a=255;
+						 if(colore.length()>7)
+							  a= Integer.parseInt(colore.substring(7, 9), 16);
 						 c = new Color(r, g, b ,a);
 						break;
 					case "colort-bullet:":
-						
 						try {
 							Field f = Class.forName("java.awt.Color").getField(ctx.STRING().toString().substring(1, ctx.STRING().toString().length() - 1));
 							c=(Color)f.get(null);

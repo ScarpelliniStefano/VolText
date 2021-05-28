@@ -140,7 +140,7 @@ TXTATF: 	'bold'
 	| 		'italics'
 	|		'underline';
 
-COLORVAL: 	'#' ([0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F]);
+COLORVAL: 	'#' ([0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F]([0-9a-fA-F][0-9a-fA-F])*);
 
 ALIGNVAL:    'left'
 	|		 'center'

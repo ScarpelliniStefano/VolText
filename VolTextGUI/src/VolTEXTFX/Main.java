@@ -24,9 +24,9 @@ import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
-
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
 
 public class Main extends Application {
 
@@ -313,7 +313,7 @@ public class Main extends Application {
         
         //try {
 			//scene.getStylesheets().add(new File(.toURI()).toURI().toURL().toString());
-			scene.getStylesheets().add(getClass().getClassLoader().getResource("application.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getClassLoader().getResource("application.css").toExternalForm());
 		//} catch (URISyntaxException | IOException e1) {
 		//	e1.printStackTrace();
 		//}

@@ -64,7 +64,7 @@ list: 		'list' O (listattr | listElem)* C;
 
 listElem: 	'item:' STRING ENDNLINE;
 
-text: 		'text' O txtattr* txtElem* txtattr* txtElem* txtattr* C;
+text: 		'text' O (txtattr | txtElem)* txtElem (txtattr | txtElem)* C;
 
 txtattr: 	(color | idval | imganumber | positionv | alignment |  txtval | fitAttr);
 
@@ -115,7 +115,7 @@ color:		'colorT:' STRING ENDNLINE
  
 positionv:	'position:' POSVAL ENDNLINE;
 
-alignment:  'alignment:' ALIGNVAL ENDLINE;
+alignment:  'alignment:' ALIGNVAL ENDNLINE;
 
 pageattr:	'orientation:' ORIENTATION ENDNLINE
 	|		'oob:' TFVAL ENDNLINE

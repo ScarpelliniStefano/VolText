@@ -1,0 +1,121 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+#line .scroll-bar {
+    -fx-pref-width: 0.05;
+    -fx-opacity: 0;  
+    -fx-background-color: #dddddd;
+    -fx-border-color: #dddddd;
+}
+
+#line .thumb {
+    -fx-background-color :derive(black,90.0%);
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2.0em;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color :#aaaaaa;
+    -fx-background-insets : 0.0, 0.0, 0.0;
+    -fx-background-radius: 0em;
+}
+
+.text-area:focused{
+	-fx-focus-color: transparent; 
+	-fx-background-insets: 0, 0 0 1 0;
+}
+
+#line .content{
+	-fx-background-color: #dddddd;
+	-fx-background-radius: 0;
+	-fx-padding: 3;
+}
+
+#line .text{
+	-fx-text-alignment: right;
+}
+
+#line {
+	-fx-text-fill: #050505;
+	-fx-border-color: #000000;
+	-fx-background-radius: 0;
+	-fx-vbar-policy: never;  
+	-fx-padding:0;
+}
+
+#textarea_main{
+	-fx-text-fill: #050505;
+	-fx-background-radius: 0;
+	-fx-border-color: #000000;
+}
+
+#consoleTextArea{
+	-fx-highlight-fill: lightgrey; 
+	-fx-highlight-text-fill: black; 
+	-fx-text-fill: wheat; 
+	-fx-font-size: 14pt;
+}
+
+#textarea_main .content{
+	-fx-background-color: #eeeeee;
+	-fx-background-radius: 0;
+	-fx-padding: 3;
+}
+
+.increment-button{
+	-fx-background-color: #272326;
+	-fx-border-color: #272326;
+	-fx-scale-shape: true;
+	-fx-padding: 3;
+	-fx-border-width: 2;
+}
+
+.decrement-button{
+	-fx-background-color: #272326;
+	-fx-border-color: #272326;
+	-fx-scale-shape: true;
+	-fx-padding: 3;
+	-fx-border-width: 2;
+}
+
+.increment-arrow{
+	-fx-background-color: #ffffff;
+	-fx-scale-shape: true;
+}
+
+.decrement-arrow{
+	-fx-background-color: #ffffff;
+	-fx-scale-shape: true;
+}
+
+.track{
+	-fx-background-color: #272326;
+}
+
+#textf {
+ 	-fx-background-color: #222222;
+}
+
+
+#bApri{
+	-fx-background-color: white; 
+	-fx-text-fill: black; 
+	-fx-border-color: red; 
+	-fx-border-width: 2px; 
+	-fx-font-size: 2em;
+}
+
+#bSalva{
+	-fx-background-color: white; 
+	-fx-text-fill: black; 
+	-fx-border-color: red; 
+	-fx-border-width: 2px; 
+	-fx-font-size: 2em;
+}
+
+#bCrea{
+	-fx-background-color: red; 
+	-fx-text-fill: white; 
+	-fx-border-color: red; 
+	-fx-border-width: 4px; 
+	-fx-font-size: 2em;
+}

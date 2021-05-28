@@ -34,14 +34,26 @@ public class user_gui {
 				"			pos-x:60%;\r\n" + 
 				"			pos-y:60%;\r\n" + 
 				"			fit-y:true;\r\n" + 
-				"		}\r\n" + 
-				"		text:{\r\n" + 
+				"			text:{\r\n" + 
 				"				id:\"TESTO2\";\r\n" + 
 				"				colorT:\"black\";\r\n" + 
-				"				position:ct;\r\n" + 
+				"				position:cc;\r\n" + 
 				"				height:30mm;\r\n" + 
 				"				string:\"Prova\";\r\n" + 
-				"				angle-rotation: 45;\r\n" + 
+				"				angle-rotation: 0;\r\n" + 
+				"				string:\"Prova2\";\r\n" + 
+				"				string:\"Prova3\";\r\n" + 
+				"			}\r\n" + 
+				"		}\r\n" + 
+				"		text:{\r\n" + 
+				"				id:\"TESTO3\";\r\n" + 
+				"				colorT:\"black\";\r\n" + 
+				"				position:cc;\r\n" + 
+				"				height:30mm;\r\n" + 
+				"				string:\"Prova\";\r\n" + 
+				"				angle-rotation: 0;\r\n" + 
+				"				string:\"Prova2\";\r\n" + 
+				"				string:\"Prova3\";\r\n" + 
 				"		}\r\n" + 
 				"	}	\r\n" + 
 				"}\r\n" ;

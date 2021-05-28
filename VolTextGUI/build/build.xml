@@ -103,6 +103,11 @@
 		<mkdir dir="project" />
 		<copy todir="project">
 			<fileset dir="C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI">
+				<include name="resources/**" />
+			</fileset>
+		</copy>
+		<copy todir="project">
+			<fileset dir="C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI">
 				<include name="src/**" />
 			</fileset>
 		</copy>
@@ -145,6 +150,11 @@
 				<include name="**/*"/>
 			</fileset>
 		</copy>
+		<copy todir="build/src">
+			<fileset dir="project/resources">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
 	
 		<javac includeantruntime="false" release="12" srcdir="build/src" destdir="build/classes" encoding="Cp1252">
 			<classpath>
@@ -157,6 +167,9 @@
 		<!-- Copy over none Java-Files -->
 		<copy todir="build/classes">
 		<fileset dir="project/src">
+			<exclude name="**/*.java"/>
+		</fileset>
+		<fileset dir="project/resources">
 			<exclude name="**/*.java"/>
 		</fileset>
 		</copy>

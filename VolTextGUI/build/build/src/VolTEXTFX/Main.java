@@ -3,7 +3,6 @@ package VolTEXTFX;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -25,9 +24,9 @@ import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
-
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
 
 public class Main extends Application {
 
@@ -309,12 +308,15 @@ public class Main extends Application {
             }
         });
 
-        Scene scene = new Scene(grid, 700, 700);        
-        try {
-			scene.getStylesheets().add(new File("src\\VolTEXTFX\\application.css").toURI().toURL().toString());
-		} catch (MalformedURLException e1) {
-			e1.printStackTrace();
-		}
+        Scene scene = new Scene(grid, 700, 700);  
+       
+        
+        //try {
+			//scene.getStylesheets().add(new File(.toURI()).toURI().toURL().toString());
+		scene.getStylesheets().add(getClass().getClassLoader().getResource("application.css").toExternalForm());
+		//} catch (URISyntaxException | IOException e1) {
+		//	e1.printStackTrace();
+		//}
         primaryStage.setScene(scene);
         primaryStage.show();
 

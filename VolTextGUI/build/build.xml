@@ -103,12 +103,12 @@
 		<mkdir dir="project" />
 		<copy todir="project">
 			<fileset dir="C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI">
-				<include name="resources/**" />
+				<include name="src/**" />
 			</fileset>
 		</copy>
 		<copy todir="project">
 			<fileset dir="C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI">
-				<include name="src/**" />
+				<include name="resources/**" />
 			</fileset>
 		</copy>
 	

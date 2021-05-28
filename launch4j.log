@@ -720,3 +720,41 @@ Launcher:	C:\Program Files\Java\jdk-13.0.2\bin\javaw.exe
 Launcher args:	-jar "C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolText.exe" -Dfile.encoding=Cp1252 -p "C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\bin;C:\Users\stefa\.p2\pool\plugins\org.eclipse.fx.ide.css.jfx8_3.7.0.202010120832.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib\antlr-runtime-4.9.1.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib\commons-logging-1.2.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib\fontbox-2.0.22.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib\pdfbox-2.0.22.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib\pdfbox2-layout-1.0.0.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib\slf4j-api-1.7.9.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib\slf4j-simple-1.7.9.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib\libraryVoltext.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib\javafx-swt.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib\javafx.base.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib\javafx.controls.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib\javafx.fxml.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib\javafx.graphics.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib\javafx.media.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib\javafx.swing.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib\javafx.web.jar" -m VoltextGUI/VolTEXTFX.Main
 Args length:	1891/32768 chars
 Exit code:	0
+
+
+Version:	3.14
+CmdLine:	C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolText.exe --l4j-debug
+WOW64:		yes
+Working dir:	C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\.
+Java min ver:	1.012.000
+Java max ver:	
+64-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8
+Ignore:		1.008.000
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_281
+Ignore:		1.008.000_281
+32-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8
+Ignore:		1.008.000
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_281
+Ignore:		1.008.000_281
+64-bit search:	SOFTWARE\JavaSoft\Java Development Kit...
+Check:		SOFTWARE\JavaSoft\Java Development Kit\1.8
+Ignore:		1.008.000
+Check:		SOFTWARE\JavaSoft\Java Development Kit\1.8.0_231
+Ignore:		1.008.000_231
+32-bit search:	SOFTWARE\JavaSoft\Java Development Kit...
+64-bit search:	SOFTWARE\JavaSoft\JRE...
+32-bit search:	SOFTWARE\JavaSoft\JRE...
+64-bit search:	SOFTWARE\JavaSoft\JDK...
+Check:		SOFTWARE\JavaSoft\JDK\13.0.1
+Check launcher:	C:\Program Files\Java\jdk-13.0.1\bin\javaw.exe (OK)
+Match:		1.013.000_001
+Check:		SOFTWARE\JavaSoft\JDK\13.0.2
+Check launcher:	C:\Program Files\Java\jdk-13.0.2\bin\javaw.exe (OK)
+Match:		1.013.000_002
+Runtime used:	1.013.000_002 (64-bit)
+Launcher:	C:\Program Files\Java\jdk-13.0.2\bin\javaw.exe
+Launcher args:	-jar "C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolText.exe" -Dfile.encoding=Cp1252 -p "C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\bin;C:\Users\stefa\.p2\pool\plugins\org.eclipse.fx.ide.css.jfx8_3.7.0.202010120832.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib\antlr-runtime-4.9.1.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib\commons-logging-1.2.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib\fontbox-2.0.22.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib\pdfbox-2.0.22.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib\pdfbox2-layout-1.0.0.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib\slf4j-api-1.7.9.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib\slf4j-simple-1.7.9.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\lib\libraryVoltext.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib\javafx-swt.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib\javafx.base.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib\javafx.controls.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib\javafx.fxml.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib\javafx.graphics.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib\javafx.media.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib\javafx.swing.jar;C:\Users\stefa\Documents\VolTEXT\VolTextComplete\VolText\VolTextGUI\javafx-sdk-11.0.2\lib\javafx.web.jar" -m VoltextGUI/VolTEXTFX.Main
+Args length:	1891/32768 chars
+Exit code:	0

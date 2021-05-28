@@ -1,0 +1,89 @@
+{
+	title:"Brochure";
+	page:{
+		p_width:3000;
+		p_height:2000;
+		div:{
+			pos-x: 0;
+			pos-y: 0;
+			fit-y: true;
+			width: 33.3%;
+			color: #bde1f2ff;
+			list:{
+				item:"pulizia viso";
+				item:"pulizia corpo";
+				item:"pulizia piedi";
+				font-size:200;
+				position: cc ;
+				angle-rotation: 0 ;
+				colorT: "red";
+				colorT-bullet: "orange";
+				font-family-ttf:"./ttf/FFFtulsj/FFF_Tusj.ttf";
+			}
+		}
+		div:{
+			pos-x: 33.3%;
+			pos-y: 0;
+			fit-y: true;
+			width: 33.3%;
+			color: #86e1deff;
+		}
+		div:{
+			pos-x: 66.6%;
+			pos-y: 0;
+			fit-y: true;
+			width: 33.4%;
+			color: #bdcbffff;
+		}
+		div:{
+			pos-x: 0%;
+			pos-y: 0;
+			height: 20%;
+			width: 33.3%;
+			color: #bdcbffff;
+			text:{
+				string:"I nostri servizi";
+				font-size:200;
+				position:cc;
+				angle-rotation:10;
+				alignment:center;
+				color: #0000ffff;
+				font-family-ttf:"./ttf/FFFtulsj/FFF_Tusj.ttf";
+			}
+		}
+		div:{
+			pos-x: 66.6%;
+			pos-y: 80%;
+			height:20%;
+			width: 33.4%;
+			color: #bde1f2ff;
+			text:{
+				string:"CONTATTACI:";
+				string:" TEL: 035/39871372642";
+				font-size:180;
+				position:cc;
+				alignment:center;
+				color: #ff00ffff;
+				font-family-ttf:"./ttf/FFFtulsj/FFF_Tusj.ttf";
+			}
+		}
+		div:{
+			shape:"TRIANGLE";
+			cross-point:50;
+			position: cc;
+			width: 30%;
+			height: 30%;
+			color: #5881ffff;
+			angle-rotation: 270;
+		}
+		div:{
+			shape:"TRIANGLE";
+			cross-point:50;
+			position: cc;
+			width: 30%;
+			height: 30%;
+			color: #dc81ffaa;
+			angle-rotation: 90;
+		}
+	}
+}

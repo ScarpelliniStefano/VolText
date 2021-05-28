@@ -1,0 +1,15 @@
+{
+	title: "esempio testi";
+	page:{
+		text:{
+			pos-x: 0;
+			pos-y: 0;
+			fit-x: true;
+			fit-y: true;
+			string: "I testi possono essere realizzati in testo normale";
+			string: "I testi possono essere realizzati in \\bold grassetto \\bold ";
+			string: "I testi possono essere realizzati in \\italic italico/corsivo \\italic ";
+			string: "I testi possono essere realizzati in \\bold \\italic italico/corsivo e grassetto \\italic \\bold ";
+		}
+	}
+}

@@ -1,0 +1,110 @@
+{
+	title:"Volantino";
+	page:{
+	oob:true;
+		div:{
+			pos-y: 0;
+			fit-x: true;
+			height: 15%;
+			color: #cc0052ff;
+			text:{
+				string:"BALOON";
+				font-size:70;
+				position:ct;
+				angle-rotation:0;
+				alignment:center;
+				color: #ffffffff;
+				font-family-ttf:"./ttf/FFFtulsj/FFF_Tusj.ttf";
+			}
+		}
+		div:{
+			pos-y: 15%;
+			fit-x: true;
+			height: 85%;
+			color: #00b8e6ff;
+		}
+		div:{
+			pos-x: 0;
+			height: 15%;
+			width: 5mm;
+			color: #e28743ff;
+		}
+		div:{
+			pos-x: 5mm;
+			height: 15%;
+			width: 5mm;
+			color: #2aa1c9ff;
+		}
+		div:{
+			position: rt;
+			height: 15%;
+			width: 5mm;
+			color: #e28743ff;
+		}
+		div:{
+			pos-x: -5mm;
+			height: 15%;
+			width: 5mm;
+			color: #2aa1c9ff;
+		}
+		div:{
+			width: 70;
+			height: 70;
+			color: #ffff33ff;
+			shape:"CIRCLE";
+			pos-x: 72%;
+			pos-y: 82%;
+		}
+		div:{
+			width: 80;
+			height: 80;
+			color: #cc0000ee;
+			shape:"CIRCLE";
+			pos-x: -16%;
+			pos-y: 82%;
+		}
+		div:{
+			width: 70;
+			height: 70;
+			color: #ffff33ff;
+			shape:"CIRCLE";
+			pos-x: 17%;
+			pos-y: 82%;
+		}
+		div:{
+			width: 80;
+			height: 80;
+			color: #cc0000ee;
+			shape:"CIRCLE";
+			pos-x: -72%;
+			pos-y: 82%;
+		}
+		div:{
+			width: 80;
+			height: 28.4;
+			pos-y: 20%;
+			angle-rotation:30;
+			color: #ffffffff;
+			img:{
+				URL:"./elio.jpg";
+				height: 90%;
+				width: 95%;
+				position:cc;
+			}
+		}
+		div:{
+			width: 80;
+			height: 120;
+			pos-y: 30%;
+			pos-x: 60%;
+			angle-rotation:10;
+			color: #ffffffff;
+			img:{
+				URL:"./PALLONCINI.jpg";
+				height: 95%;
+				width: 95%;
+				position:cc;
+			}
+		}
+	}
+}
